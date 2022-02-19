@@ -3,14 +3,39 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jkaczmar <jkaczmar@student.42wolfsburg.de> +#+  +:+       +#+        */
+/*   By: jkaczmar <jkaczmar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/08 16:20:27 by jkaczmar          #+#    #+#             */
-/*   Updated: 2022/01/18 14:50:08 by jkaczmar         ###   ########.fr       */
+/*   Updated: 2022/02/19 18:09:58 by jkaczmar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+int ft_isdigit(int c){
+	return (c >= '0' && c <= '9');
+}
+int	ft_atoi(const char *str)
+{
+	int	res;
+	int	counter;
+	int	negative;
+
+	negative = 1;
+	counter = 0;
+	while (str[counter] == ' ' || str[counter] == '\t' || str[counter] == '\n'
+		|| str[counter] == '\v' || str[counter] == '\f' || str[counter] == '\r')
+		counter++;
+	if (str[counter] == '-' || str[counter] == '+')
+	{
+		if (str[counter] == '-')
+			negative = -1;
+		counter++;
+	}
+	res = 0;
+	while (str[counter] != '\0' && ft_isdigit(str[counter]))
+		res = res * 10 + (str[counter++] - '0');
+	return (res * negative);
+}
 void	ft_putchar_fd(char c, int fd)
 {
 	write(fd, &c, 1);
@@ -52,73 +77,52 @@ struct sStack createStack(unsigned capacity)
 //     if()
 // }
 
-int isFull(struct sStack* stack)
+int checkforRepetition(struct  sStack *stack, int size)
 {
-    return stack->top == stack->capacity - 1;
-}
-int isEmpty(struct sStack* stack)
-{
-    return stack->top == -1;
-};
-void push(struct sStack* stack, int item)
-{
-    if(isFull(stack))
-        return ;
-    stack->array[++stack->top] = item;
-    // write(1,"Pushed\n",8);
-};
-int pop(struct sStack* stack)
-{
-        if(isEmpty(stack))
-            return -1;
-        return stack->array[stack->top--];
-};
-int peek(struct sStack* stack)
-{
-    if(isEmpty(stack))
-        return -321;
-    return stack->array[stack->top];
-}
-void printStack(struct sStack stack)
-{
-    while (!isEmpty(&stack))
+    int i  = 0;
+    int j  = 0;
+    while(i < size - 1)
     {
-        ft_putnbr_fd(pop(&stack), 1);
-        write(1," ",1);
+        j = i + 1;
+        while(j < size)
+        {
+            if(stack->array[i] == stack->array[j])
+            {
+                return 1;
+            }
+            j++;
+        }
+        i++;
     }
-    write(1,"\n",1);
+    return 0;
 }
-static void sortstack(struct sStack *stack, struct sStack *temp)
+int	ft_strcmp(const char *s1, const char *s2)
 {
-    int first = 1;
-    int el;
-    while(!isEmpty(stack))
-    {
-        if(first == 1)
-        {
-            push(temp, pop(stack));
-            first = 0;
-            continue;
-        }
-        el = pop(stack);
-        if(!isEmpty(temp) && peek(stack) < peek(temp))
-        {
-            transferoneeltotheother(stack, temp);
-            printf("pa\n");
-        }else if(peek(stack) > peek(temp)){
-            transferoneeltotheother(temp, stack);
-            printf("pb\n");
-        }
-        
-        while(!isEmpty(temp) && peek(temp) > peek(stack))
-        {
-            transferoneeltotheother(stack, temp);
-            printf("pa\n");
-        }
-        transferoneeltotheother(temp, stack);
-        printf("pb\n");
+	size_t			counter;
+	unsigned char	*magic;
+	unsigned char	*helpme;
+
+	counter = 0;
+	magic = (unsigned char *)s1;
+	helpme = (unsigned char *)s2;
+	while ((magic[counter] != '\0' || helpme[counter] != '\0'))
+	{
+		if (magic[counter] != helpme[counter])
+		{
+			return (magic[counter] - helpme[counter]);
+		}
+		counter++;
+	}
+	return (0);
+}
+int check_for_int_overflow(int num, char *str)
+{
+    char *str1 = ft_itoa(num);
+    if(ft_strcmp(str1, str) == 0)
+        return 1;
+    else{
+        return 0;
     }
-    printStack(*temp);
 }
 //Goal for today7 Sort this thingy PLZ :)
 int main(int argc, char **argv)
@@ -127,6 +131,8 @@ int main(int argc, char **argv)
     struct sStack stack2 = createStack(argc);
     int numStack[argc];
     int i = argc - 1;
+    char *str;
+    int arr[argc];
     int j = 0;
     if(argc == 1)
     {
@@ -135,12 +141,28 @@ int main(int argc, char **argv)
     }
     while(i != 0)
     {
-        push(&stack, atoi(argv[i]));
+        //check if it's int 
+        str = argv[i];
+        if(check_for_int_overflow(ft_atoi(argv[i]), str) == 1)
+            push(&stack, ft_atoi(argv[i]));
+        else{
+            printf("Error\n");
+            return 0;
+        }
         i--;
-        j++;
     }
-    sortstack(&stack, &stack2);
-
+    if(checkforRepetition(&stack, argc) == 1)
+    {
+        printf("Repetition in the input\n");
+        return 0;
+    } 
+    if(a_is_sorted(&stack) == 1)
+    {
+        printf("Sorted");
+        return 0;
+    }
+    sort_stack(&stack, &stack2);
+    // sort_small_stack(stack);
     // printStack(stack);
     // // rotatestack(&stack);
     // // rotatestack(&stack);
