@@ -1,30 +1,47 @@
-#pragma once
-#include <stdio.h>
-#include <stdlib.h>
 #include <unistd.h>
+#include <stdlib.h>
 
+#include "printf/ft_printf.h"
 
-struct sStack
+typedef struct sStack
 {
-    int top; //Top element of stack
-    unsigned capacity; //Memory reserved on the stack os basically how much memory does stack take
-    int *array; //pointer to our stack which is an int array
-};
-void reverserotatestack(struct sStack* stack);
-void rotatestack(struct sStack* stack);
-int isFull(struct sStack* stack);
-int isEmpty(struct sStack* stack);
-void push(struct sStack* stack, int item);
-int pop(struct sStack* stack);
-int peek(struct sStack* stack);
-void swaptwofirsttwoitemtop(struct sStack *stack);
-void transferoneeltotheother(struct sStack *stack,struct sStack *src);
-int a_is_sorted(struct sStack *stack);
-void	ft_putchar_fd(char c, int fd);
-void	ft_putnbr_fd(int n, int fd);
-void printStack(struct sStack stack);
+    int top;
+    unsigned capacity;
+    int *array;
+    /* data */
+} tstack;
+
+tstack * createStack(unsigned capacity);
+//###Stack instructions###
+int isFull(tstack* stack);
+int isEmpty(tstack* stack);
+int pop(tstack* stack);
+void push(tstack* stack, int topush);
+int peek(tstack* stack);
+void printStack(tstack* stack);
+//###Push_swap_instructions###
+//Swaping
+void sa(tstack* stack);
+void sb(tstack* stack);
+void ss(tstack* a, tstack* b);
+//Pushing
+void pa(tstack* a, tstack *b);
+void pb(tstack* a, tstack *b);
+//Rotating
+void ra(tstack* a);
+void rb(tstack* b);
+void rr(tstack* a, tstack *b);
+//Reverse rotating
+void rra(tstack* a);
+void rrb(tstack* a);
+void rrr(tstack *a, tstack *b);
+//###Input checking###
+int check_for_int_overflow(int num, char *str);
+int check_input(char *str,tstack **stack_a);
+int check_for_duplicates(tstack **stack_a);
+//###Sorting Part###//
+//###Array with Indexes creation ###//
+int indexedarr(tstack *stack);
+//###Helper Func###
+int	ft_atoi(const char *str);
 char	*ft_itoa(int n);
-int	ft_strncmp(const char *s1, const char *s2, size_t n);
-int getStackSize(struct sStack *stack);
-void sort_stack(struct sStack *stack, struct sStack *temp);
-int sort_small_stack(struct sStack *stack);
