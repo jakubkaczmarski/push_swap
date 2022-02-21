@@ -40,8 +40,11 @@ int check_for_int_overflow(int num, char *str);
 int check_input(char *str,tstack **stack_a);
 int check_for_duplicates(tstack **stack_a);
 //###Sorting Part###//
+tstack *cpy_stack(tstack *stack_a, tstack *cpy_stack_a);
+void change_arr_values(tstack** stack_a_copy, tstack* sorted_cpy);
+void radix_sort(tstack **stack_sorted, tstack **actual_stack, tstack **stack_b, tstack **stack_b_cpy);
 //###Array with Indexes creation ###//
-int indexedarr(tstack *stack);
+void indexedarr(tstack *stack_cpy);
 //###Helper Func###
 int	ft_atoi(const char *str);
 char	*ft_itoa(int n);
