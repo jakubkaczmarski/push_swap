@@ -64,17 +64,49 @@ int issorted(tstack *stack)
     }
     return 1;
 }
+void sort_small_arr_2(tstack **stack_sorted, tstack **actual_stack)
+{
+
+    if(stack_sorted[0]->array[0] < stack_sorted[0]->array[1])
+    {
+        ft_printf("sa\n");
+        sa(stack_sorted[0]);
+        sa(actual_stack[0]);    
+    }
+        
+}
 void sort_small_arr_3(tstack **stack_sorted, tstack **actual_stack)
 {
-    // if(stack_sorted[0]->array[0] > stack_sorted[0]->array[1] && stack_sorted[0]->array[1] < stack_sorted[0]->array[2] && stack_sorted[0]->array[2] < stack_sorted[0]->array[0])
-    // {
-    //     ft_printf("sa\n");
-    //     sa(stack_sorted);
-    //     sa(actual_stack);
-    // }else if(stack_sorted[0]->array[1] > stack_sorted[0]->array[2])
-    // {
-        
-    // }else if()
+    if(issorted(stack_sorted[0]) == 1)
+        return ;
+    ft_printf("\n%d\n",stack_sorted[0]->array[0]);
+    if(stack_sorted[0]->array[2] > stack_sorted[0]->array[1] && stack_sorted[0]->array[1] > stack_sorted[0]->array[0])
+    {
+        ft_printf("sa\n");
+        sa(stack_sorted[0]);
+        sa(actual_stack[0]);
+        ft_printf("rra\n");
+        rra(stack_sorted[0]);
+        rra(actual_stack[0]);
+    }else if(stack_sorted[0]->array[2] < stack_sorted[0]->array[1] && stack_sorted[0]->array[1] > stack_sorted[0]->array[0])
+    {
+        ft_printf("rra\n");
+        rra(stack_sorted[0]);
+        rra(actual_stack[0]);
+        ft_printf("rra\n");
+        rra(stack_sorted[0]);
+        rra(actual_stack[0]);
+    }else if(stack_sorted[0]->array[2] > stack_sorted[0]->array[1] && stack_sorted[0]->array[1] < stack_sorted[0]->array[0])
+    {
+        ft_printf("sa\n");
+        sa(stack_sorted[0]);
+        sa(actual_stack[0]);
+    }
+    printStack(actual_stack[0]);
+}
+void sort_small_arr_5(tstack **stack_sorted, tstack **actual_stack)
+{
+    
 }
 void radix_sort(tstack **stack_sorted, tstack **actual_stack, tstack **stack_b, tstack **stack_b_cpy)
 {
@@ -82,7 +114,8 @@ void radix_sort(tstack **stack_sorted, tstack **actual_stack, tstack **stack_b, 
     int max_num = stack_sorted[0]->top;; //Biggest number in sorted stack
     int i = 0;
     int j = 0;
-        while(issorted(stack_sorted[0]) == 0)
+    int instructions = 0;
+    while(issorted(stack_sorted[0]) == 0)
     {
         j = 0;
         while(j < size + 1)
@@ -90,11 +123,13 @@ void radix_sort(tstack **stack_sorted, tstack **actual_stack, tstack **stack_b, 
             int num = peek(stack_sorted[0]);
             if(((num >> i)&1))
             {
+                instructions++;
                 ft_printf("ra\n");
                 ra(stack_sorted[0]);
                 ra(actual_stack[0]);
             }
             else{
+                instructions++;
                 ft_printf("pb\n");
                 pb(stack_sorted[0], stack_b_cpy[0]);
                 pb(actual_stack[0], stack_b[0]);
@@ -103,12 +138,14 @@ void radix_sort(tstack **stack_sorted, tstack **actual_stack, tstack **stack_b, 
         }
         while(isEmpty(stack_b_cpy[0]) == 0)
         {
+            instructions++;
             ft_printf("pa\n");
             pa(stack_sorted[0], stack_b_cpy[0]);
             pa(actual_stack[0], stack_b[0]);
         }
         i++;
     }
+    // ft_printf("\n%d\n", instructions);
 }
 
 

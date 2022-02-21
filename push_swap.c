@@ -31,7 +31,23 @@ int main(int argc, char **argv)
     indexedarr(cpy_stack_a_arr);
     //Change values in an cpy_arr
     change_arr_values(&cpy_stack_a,cpy_stack_a_arr);
-    radix_sort(&cpy_stack_a, &stack_a, &stack_b, &stack_b_cpy);
+    //Sort
+    if(stack_a->top + 1 <= 5)
+    {
+        if(stack_a->top + 1 <= 2)
+        {
+            sort_small_arr_2(&cpy_stack_a, &stack_a);
+        }else if(stack_a->top + 1 <= 3)
+        {
+            sort_small_arr_3(&cpy_stack_a, &stack_a);
+        }else if(stack_a->top + 1 <= 5)
+        {
+            sort_small_arr_5(&cpy_stack_a, &stack_a);
+        }
+    }else{
+        radix_sort(&cpy_stack_a, &stack_a, &stack_b, &stack_b_cpy);
+    }
+
     // printStack(stack_a);
     // ft_printf("\n");
     // printStack(stack_a);
