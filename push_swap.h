@@ -1,7 +1,7 @@
 #include <unistd.h>
 #include <stdlib.h>
 
-#include "printf/ft_printf/ft_printf.h"
+#include "printf/ft_printf.h"
 
 typedef struct sStack
 {
@@ -45,7 +45,9 @@ void change_arr_values(tstack** stack_a_copy, tstack* sorted_cpy);
 void radix_sort(tstack **stack_sorted, tstack **actual_stack, tstack **stack_b, tstack **stack_b_cpy);
 void sort_small_arr_3(tstack **stack_sorted, tstack **actual_stack);
 void sort_small_arr_2(tstack **stack_sorted, tstack **actual_stack);
+void sort_small_arr_4(tstack **stack_sorted, tstack **actual_stack, tstack **stack_b_cpy, tstack **stack_b);
 void sort_small_arr_5(tstack **stack_sorted, tstack **actual_stack, tstack **stack_b_cpy, tstack **stack_b);
+void rotate_till_value_at_top(tstack **stack_sorted, tstack **actual_stack, int val);
 //###Array with Indexes creation ###//
 void indexedarr(tstack *stack_cpy);
 //###Helper Func###

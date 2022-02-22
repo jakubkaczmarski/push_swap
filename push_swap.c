@@ -34,21 +34,24 @@ int main(int argc, char **argv)
     //Sort
     if(stack_a->top + 1 <= 5)
     {
-        if(stack_a->top + 1 <= 2)
+        if(stack_a->top + 1 == 2)
         {
             sort_small_arr_2(&cpy_stack_a, &stack_a);
-        }else if(stack_a->top + 1 <= 3)
+        }else if(stack_a->top + 1 == 3)
         {
             sort_small_arr_3(&cpy_stack_a, &stack_a);
-        }else if(stack_a->top + 1 <= 5)
+        }else if(stack_a->top + 1 == 4)
+        {
+            sort_small_arr_4(&cpy_stack_a, &stack_a, &stack_b, &stack_b_cpy);
+        }
+        else if(stack_a->top + 1 == 5)
         {
             sort_small_arr_5(&cpy_stack_a, &stack_a, &stack_b, &stack_b_cpy);
         }
     }else{
         radix_sort(&cpy_stack_a, &stack_a, &stack_b, &stack_b_cpy);
     }
-    printStack(cpy_stack_a);
-    printStack(stack_a);
+    // printStack(cpy_stack_a);
     // ft_printf("\n");
     // printStack(stack_a);
 }
