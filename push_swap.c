@@ -31,6 +31,8 @@ int main(int argc, char **argv)
     indexedarr(cpy_stack_a_arr);
     //Change values in an cpy_arr
     change_arr_values(&cpy_stack_a,cpy_stack_a_arr);
+    if(issorted(cpy_stack_a) == 1)
+        return 0;
     //Sort
     if(stack_a->top + 1 <= 5)
     {
@@ -51,7 +53,10 @@ int main(int argc, char **argv)
     }else{
         radix_sort(&cpy_stack_a, &stack_a, &stack_b, &stack_b_cpy);
     }
+    free(cpy_stack_a);
+    free(stack_a);
+    free(stack_b);
+    free(stack_b_cpy);
     // printStack(cpy_stack_a);
     // ft_printf("\n");
-    // printStack(stack_a);
 }

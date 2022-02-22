@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   sorting.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jkaczmar <jkaczmar@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/02/22 16:32:53 by jkaczmar          #+#    #+#             */
+/*   Updated: 2022/02/22 16:37:23 by jkaczmar         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 tstack *cpy_stack(tstack *stack_a, tstack *cpy_stack_a)
@@ -77,8 +89,6 @@ void sort_small_arr_2(tstack **stack_sorted, tstack **actual_stack)
 }
 void sort_small_arr_3(tstack **stack_sorted, tstack **actual_stack)
 {
-    if(issorted(stack_sorted[0]) == 1)
-        return ;
     if(stack_sorted[0]->array[2] > stack_sorted[0]->array[1] && stack_sorted[0]->array[1] > stack_sorted[0]->array[0])
     {
         ft_printf("sa\n");
@@ -153,7 +163,6 @@ void sort_small_arr_4(tstack **stack_sorted, tstack **actual_stack, tstack **sta
 void radix_sort(tstack **stack_sorted, tstack **actual_stack, tstack **stack_b, tstack **stack_b_cpy)
 {
     int size = stack_sorted[0]->top;
-    int max_num = stack_sorted[0]->top;; //Biggest number in sorted stack
     int i = 0;
     int j = 0;
     int instructions = 0;

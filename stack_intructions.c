@@ -9,7 +9,7 @@ tstack * createStack(unsigned capacity)
 }
 int isFull(tstack* stack)
 {
-    return (stack->top == stack->capacity - 1);
+    return (stack->top == (int)stack->capacity - 1);
 }
 int isEmpty(tstack* stack)
 {

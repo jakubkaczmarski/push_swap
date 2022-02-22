@@ -1,7 +1,19 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jkaczmar <jkaczmar@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/02/22 16:32:54 by jkaczmar          #+#    #+#             */
+/*   Updated: 2022/02/22 16:38:39 by jkaczmar         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <unistd.h>
 #include <stdlib.h>
 
-#include "printf/ft_printf.h"
+#include "ft_printf/ft_printf.h"
 
 typedef struct sStack
 {
@@ -48,6 +60,7 @@ void sort_small_arr_2(tstack **stack_sorted, tstack **actual_stack);
 void sort_small_arr_4(tstack **stack_sorted, tstack **actual_stack, tstack **stack_b_cpy, tstack **stack_b);
 void sort_small_arr_5(tstack **stack_sorted, tstack **actual_stack, tstack **stack_b_cpy, tstack **stack_b);
 void rotate_till_value_at_top(tstack **stack_sorted, tstack **actual_stack, int val);
+int issorted(tstack *stack);
 //###Array with Indexes creation ###//
 void indexedarr(tstack *stack_cpy);
 //###Helper Func###
