@@ -4,7 +4,7 @@ int check_input(char *str, tstack **stack_a)
     int num = ft_atoi(str);
     if(check_for_int_overflow(num, str) == 0)
     {
-        ft_printf("Error\n");
+        write(2, "Error\n",6);
         return 1;
     }
     else{
@@ -23,7 +23,7 @@ int check_for_duplicates(tstack **stack_a)
         {
             if(stack_a[0]->array[i] == stack_a[0]->array[j])
             {
-                ft_printf("Error\n");
+                write(2, "Error\n",6);
                 return 1;
             }
             j++;
