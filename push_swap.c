@@ -19,29 +19,35 @@ int main(int argc, char **argv)
     {
         if(check_input(argv[i], &stack_a) == 1)
         {
+            free(cpy_stack_a);
+            free(stack_a);
+            free(stack_b);
+            free(stack_b_cpy);
             return 0;
         }
         i--;
     }
-
     if(check_for_duplicates(&stack_a) == 1)
+    {
+        free(cpy_stack_a);
+        free(stack_a);
+        free(stack_b);
+        free(stack_b_cpy);
         return 0;
+    }
     cpy_stack_a_arr = cpy_stack(stack_a, cpy_stack_a_arr);
     cpy_stack_a = cpy_stack(stack_a, cpy_stack_a);
     indexedarr(cpy_stack_a_arr);
-    //Change values in an cpy_arr
-    // printStack(cpy_stack_a_arr);
-    //  printStack(cpy_stack_a);
-    // printStack(cpy_stack_a_arr);
-    
     change_arr_values(&stack_a,&cpy_stack_a,cpy_stack_a_arr);
-//    printStack(cpy_stack_a);
-//    printStack(cpy_stack_a_arr);
-    // printStack(cpy_stack_a);
-    //  printStack(cpy_stack_a);
     if(issorted(cpy_stack_a) == 1)
+    {
+        free(cpy_stack_a);
+        free(stack_a);
+        free(stack_b);
+        free(stack_b_cpy);
         return 0;
-    // Sort
+    }
+        
     if(stack_a->top + 1 <= 5)
     {
         if(stack_a->top + 1 == 2)
@@ -66,6 +72,4 @@ int main(int argc, char **argv)
     free(stack_a);
     free(stack_b);
     free(stack_b_cpy);
-   
-    // ft_printf("\n");
 }
