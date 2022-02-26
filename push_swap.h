@@ -6,7 +6,7 @@
 /*   By: jkaczmar <jkaczmar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 16:32:54 by jkaczmar          #+#    #+#             */
-/*   Updated: 2022/02/22 16:38:39 by jkaczmar         ###   ########.fr       */
+/*   Updated: 2022/02/26 16:38:06 by jkaczmar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,7 @@ void sort_small_arr_4(tstack **stack_sorted, tstack **actual_stack, tstack **sta
 void sort_small_arr_5(tstack **stack_sorted, tstack **actual_stack, tstack **stack_b_cpy, tstack **stack_b);
 void rotate_till_value_at_top(tstack **stack_sorted, tstack **actual_stack, int val);
 int issorted(tstack *stack);
+int issorted_desc(tstack *stack);
 //###Array with Indexes creation ###//
 void indexedarr(tstack *stack_cpy);
 //###Helper Func###
