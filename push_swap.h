@@ -6,7 +6,7 @@
 /*   By: jkaczmar <jkaczmar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 16:32:54 by jkaczmar          #+#    #+#             */
-/*   Updated: 2022/02/26 16:38:06 by jkaczmar         ###   ########.fr       */
+/*   Updated: 2022/02/26 17:45:28 by jkaczmar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ int check_input(char *str,tstack **stack_a);
 int check_for_duplicates(tstack **stack_a);
 //###Sorting Part###//
 tstack *cpy_stack(tstack *stack_a, tstack *cpy_stack_a);
-void change_arr_values(tstack** stack_a_copy, tstack* sorted_cpy);
+void change_arr_values(tstack **input_stack, tstack** stack_a_copy, tstack* sorted_cpy);
 void radix_sort(tstack **stack_sorted, tstack **actual_stack, tstack **stack_b, tstack **stack_b_cpy);
 void sort_small_arr_3(tstack **stack_sorted, tstack **actual_stack);
 void sort_small_arr_2(tstack **stack_sorted, tstack **actual_stack);

@@ -30,10 +30,18 @@ int main(int argc, char **argv)
     cpy_stack_a = cpy_stack(stack_a, cpy_stack_a);
     indexedarr(cpy_stack_a_arr);
     //Change values in an cpy_arr
-    change_arr_values(&cpy_stack_a,cpy_stack_a_arr);
+    // printStack(cpy_stack_a_arr);
+    //  printStack(cpy_stack_a);
+    // printStack(cpy_stack_a_arr);
+    
+    change_arr_values(&stack_a,&cpy_stack_a,cpy_stack_a_arr);
+//    printStack(cpy_stack_a);
+//    printStack(cpy_stack_a_arr);
+    // printStack(cpy_stack_a);
+    //  printStack(cpy_stack_a);
     if(issorted(cpy_stack_a) == 1)
         return 0;
-    //Sort
+    // Sort
     if(stack_a->top + 1 <= 5)
     {
         if(stack_a->top + 1 == 2)
@@ -53,10 +61,11 @@ int main(int argc, char **argv)
     }else{
         radix_sort(&cpy_stack_a, &stack_a, &stack_b, &stack_b_cpy);
     }
+    
     free(cpy_stack_a);
     free(stack_a);
     free(stack_b);
     free(stack_b_cpy);
-    // printStack(cpy_stack_a);
+   
     // ft_printf("\n");
 }

@@ -6,7 +6,7 @@
 /*   By: jkaczmar <jkaczmar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 16:32:53 by jkaczmar          #+#    #+#             */
-/*   Updated: 2022/02/26 17:39:16 by jkaczmar         ###   ########.fr       */
+/*   Updated: 2022/02/26 23:09:01 by jkaczmar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,19 +23,18 @@ tstack *cpy_stack(tstack *stack_a, tstack *cpy_stack_a)
     return cpy_stack_a;
 }
 //Change values of a cpy_array to indexes of numbers
-void change_arr_values(tstack** stack_a_copy, tstack* sorted_cpy)
+void change_arr_values(tstack **input_stack,tstack** stack_a_copy, tstack* sorted_cpy)
 {
     int index = 0;
-    int j = 0;
-    while(index < sorted_cpy->top + 1)
+    int j;
+    while(index < (int)stack_a_copy[0]->capacity - 1)
     {
         j = 0;
-        while(j < stack_a_copy[0]->top + 1)
+        while(j < (int)stack_a_copy[0]->capacity - 1)
         {
-            if(sorted_cpy->array[index] == stack_a_copy[0]->array[j])
+            if(input_stack[0]->array[index] == sorted_cpy->array[j])
             {
-                stack_a_copy[0]->array[j] = index;
-                break;
+                stack_a_copy[0]->array[index] = j;
             }
             j++;
         }
@@ -47,15 +46,15 @@ void indexedarr(tstack *stack_cpy)
     int i = 0;
     int temp = 0;
     int j = 0;
-    while(i < stack_cpy->top + 1)
+    while(i < (int)stack_cpy->capacity - 2)
     {
-        j = i + 1;
-        while(j < stack_cpy->top + 1)
+        j = 0;
+        while(j < (int)stack_cpy->capacity - 2 - i)
         {
-            if(stack_cpy->array[i] > stack_cpy->array[j])
+            if(stack_cpy->array[j] > stack_cpy->array[j + 1])
             {
-                temp = stack_cpy->array[i];
-                stack_cpy->array[i] = stack_cpy->array[j];
+                temp = stack_cpy->array[j + 1];
+                stack_cpy->array[j + 1] = stack_cpy->array[j];
                 stack_cpy->array[j] = temp;
             }
             j++;
@@ -229,6 +228,7 @@ void sort_small_arr_4(tstack **stack_sorted, tstack **actual_stack, tstack **sta
     ft_printf("pa\n");
     pa(stack_sorted[0], stack_b_cpy[0]);
     pa(actual_stack[0], stack_b[0]);
+    printStack(actual_stack[0]);
 }
 void radix_sort(tstack **stack_sorted, tstack **actual_stack, tstack **stack_b, tstack **stack_b_cpy)
 {
