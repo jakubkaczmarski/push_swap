@@ -1,8 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   help_func.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jkaczmar <jkaczmar@student.42wolfsburg.de> +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/02/27 18:50:36 by jkaczmar          #+#    #+#             */
+/*   Updated: 2022/02/27 18:59:10 by jkaczmar         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
-static int ft_isdigit(int c){
+static int	ft_isdigit(int c)
+{
 	return (c >= '0' && c <= '9');
 }
+
 int	ft_atoi(const char *str)
 {
 	int	res;
@@ -25,9 +39,10 @@ int	ft_atoi(const char *str)
 		res = res * 10 + (str[counter++] - '0');
 	return (res * negative);
 }
+
 static int	ft_strcmp(const char *s1, const char *s2)
 {
-    unsigned    int			counter;
+	unsigned int	counter;
 	unsigned char	*magic;
 	unsigned char	*helpme;
 
@@ -44,12 +59,16 @@ static int	ft_strcmp(const char *s1, const char *s2)
 	}
 	return (0);
 }
-int check_for_int_overflow(int num, char *str)
+
+int	check_for_int_overflow(int num, char *str)
 {
-    char *str1 = ft_itoa(num);
-    if(ft_strcmp(str1, str) == 0)
-        return 1;
-    else{
-        return 0;
-    }
+	char	*str1;
+
+	str1 = ft_itoa(num);
+	if (ft_strcmp(str1, str) == 0)
+		return (1);
+	else
+	{
+		return (0);
+	}
 }

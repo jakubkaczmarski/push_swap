@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jkaczmar <jkaczmar@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jkaczmar <jkaczmar@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 16:32:54 by jkaczmar          #+#    #+#             */
-/*   Updated: 2022/02/27 16:00:07 by jkaczmar         ###   ########.fr       */
+/*   Updated: 2022/02/27 18:55:00 by jkaczmar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ typedef struct sStack
     /* data */
 } tstack;
 
-tstack * createStack(unsigned capacity);
+tstack * createstack(unsigned capacity);
 //###Stack instructions###
 int isFull(tstack* stack);
 int isEmpty(tstack* stack);
