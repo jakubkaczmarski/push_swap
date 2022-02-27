@@ -6,7 +6,7 @@
 /*   By: jkaczmar <jkaczmar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 16:32:53 by jkaczmar          #+#    #+#             */
-/*   Updated: 2022/02/27 19:50:52 by jkaczmar         ###   ########.fr       */
+/*   Updated: 2022/02/27 21:06:30 by jkaczmar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,7 @@ void	sort_small_arr_2(tstack **stack_sorted, tstack **actual_stack)
 {
 	if (stack_sorted[0]->array[0] < stack_sorted[0]->array[1])
 	{
-		sa(stack_sorted[0], 0);
-		sa(actual_stack[0], 1);
+		sa_operation(actual_stack[0], stack_sorted[0]);
 	}
 }
 
@@ -26,49 +25,26 @@ void	sort_small_arr_3(tstack **stack_sorted, tstack **actual_stack)
 	if (stack_sorted[0]->array[2] < stack_sorted[0]->array[1]
 		&& stack_sorted[0]->array[1] > stack_sorted[0]->array[0]
 		&& stack_sorted[0]->array[2] > stack_sorted[0]->array[0])
-	{
-		rra(stack_sorted[0], 0);
-		rra(actual_stack[0], 1);
-	}
+		rra_operation(actual_stack[0], stack_sorted[0]);
 	else if (stack_sorted[0]->array[2] > stack_sorted[0]->array[1]
 		&& stack_sorted[0]->array[1] > stack_sorted[0]->array[0])
 	{
-		sa(stack_sorted[0], 0);
-		sa(actual_stack[0], 1);
-		rra(stack_sorted[0], 0);
-		rra(actual_stack[0], 1);
+		sa_operation(actual_stack[0], stack_sorted[0]);
+		rra_operation(actual_stack[0], stack_sorted[0]);
 	}
 	else if (stack_sorted[0]->array[2] < stack_sorted[0]->array[1]
 		&& stack_sorted[0]->array[1] > stack_sorted[0]->array[0]
 		&& stack_sorted[0]->array[2] < stack_sorted[0]->array[0])
-	{
-		sa(stack_sorted[0], 0);
-		sa(actual_stack[0], 1);
-		ra(stack_sorted[0], 0);
-		ra(actual_stack[0], 1);
-	}
+		sa_rra_op(actual_stack[0], stack_sorted[0]);
 	else if (stack_sorted[0]->array[2] > stack_sorted[0]->array[1]
 		&& stack_sorted[0]->array[1] < stack_sorted[0]->array[0]
 		&& stack_sorted[0]->array[0] < stack_sorted[0]->array[2])
-	{
-		ra(stack_sorted[0], 0);
-		ra(actual_stack[0], 1);
-	}
+		ra_operation(actual_stack[0], stack_sorted[0]);
 	else if (stack_sorted[0]->array[2] < stack_sorted[0]->array[1]
 		&& stack_sorted[0]->array[1] > stack_sorted[0]->array[0])
-	{
-		rra(stack_sorted[0], 0);
-		rra(actual_stack[0], 1);
-		rra(stack_sorted[0], 0);
-		rra(actual_stack[0], 1);
-	}
-	else if (stack_sorted[0]->array[2] > stack_sorted[0]->array[1]
-		&& stack_sorted[0]->array[1] < stack_sorted[0]->array[0]
-		&& stack_sorted[0]->array[0] > stack_sorted[0]->array[2])
-	{
-		sa(stack_sorted[0], 0);
-		sa(actual_stack[0], 1);
-	}
+		double_rra_op(actual_stack[0], stack_sorted[0]);
+	else
+		sa_operation(actual_stack[0], stack_sorted[0]);
 }
 
 void	sort_small_arr_5(tstack **stack_sorted,
@@ -77,16 +53,12 @@ void	sort_small_arr_5(tstack **stack_sorted,
 						tstack **stack_b)
 {
 	rotate_till_value_at_top(stack_sorted, actual_stack, 0);
-	pb(stack_sorted[0], stack_b_cpy[0], 0);
-	pb(actual_stack[0], stack_b[0], 1);
+	pb_op(actual_stack[0], stack_b[0], stack_sorted[0], stack_b_cpy[0]);
 	rotate_till_value_at_top(stack_sorted, actual_stack, 1);
-	pb(stack_sorted[0], stack_b_cpy[0], 0);
-	pb(actual_stack[0], stack_b[0], 1);
+	pb_op(actual_stack[0], stack_b[0], stack_sorted[0], stack_b_cpy[0]);
 	sort_small_arr_3(stack_sorted, actual_stack);
-	pa(stack_sorted[0], stack_b_cpy[0], 0);
-	pa(actual_stack[0], stack_b[0], 1);
-	pa(stack_sorted[0], stack_b_cpy[0], 0);
-	pa(actual_stack[0], stack_b[0], 1);
+	pa_op(actual_stack[0], stack_b[0], stack_sorted[0], stack_b_cpy[0]);
+	pa_op(actual_stack[0], stack_b[0], stack_sorted[0], stack_b_cpy[0]);
 }
 
 void	sort_small_arr_4(tstack **stack_sorted,
@@ -95,15 +67,13 @@ void	sort_small_arr_4(tstack **stack_sorted,
 						tstack **stack_b)
 {
 	rotate_till_value_at_top(stack_sorted, actual_stack, 0);
-	pb(stack_sorted[0], stack_b_cpy[0], 0);
-	pb(actual_stack[0], stack_b[0], 1);
+	pb_op(actual_stack[0], stack_b[0], stack_sorted[0], stack_b_cpy[0]);
 	sort_small_arr_3(stack_sorted, actual_stack);
-	pa(stack_sorted[0], stack_b_cpy[0], 0);
-	pa(actual_stack[0], stack_b[0], 1);
+	pa_op(actual_stack[0], stack_b[0], stack_sorted[0], stack_b_cpy[0]);
 }
 
 void	radix_sort(tstack **stack_sorted,
-				tstack **actual_stack,
+				tstack **ac_stack,
 				tstack **stack_b,
 				tstack **stack_b_cpy)
 {
@@ -122,22 +92,13 @@ void	radix_sort(tstack **stack_sorted,
 		{
 			num = peek(stack_sorted[0]);
 			if (((num >> i) & 1))
-			{
-				ra(stack_sorted[0], 0);
-				ra(actual_stack[0], 1);
-			}
+				ra_operation(ac_stack[0], stack_sorted[0]);
 			else
-			{
-				pb(stack_sorted[0], stack_b_cpy[0], 0);
-				pb(actual_stack[0], stack_b[0], 1);
-			}
+				pb_op(ac_stack[0], stack_b[0], stack_sorted[0], stack_b_cpy[0]);
 			j++;
 		}
 		while (isempty(stack_b_cpy[0]) == 0)
-		{
-			pa(stack_sorted[0], stack_b_cpy[0], 0);
-			pa(actual_stack[0], stack_b[0], 1);
-		}
+			pa_op(ac_stack[0], stack_b[0], stack_sorted[0], stack_b_cpy[0]);
 		i++;
 	}
 }

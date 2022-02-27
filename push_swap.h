@@ -6,7 +6,7 @@
 /*   By: jkaczmar <jkaczmar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 16:32:54 by jkaczmar          #+#    #+#             */
-/*   Updated: 2022/02/27 20:05:30 by jkaczmar         ###   ########.fr       */
+/*   Updated: 2022/02/27 21:06:49 by jkaczmar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,19 +38,26 @@ void	printstack(tstack* stack);
 //###Push_swap_instructions###
 //Swaping
 void	sa(tstack* stack, int i);
+void	sa_rra_op(tstack *stack_a, tstack *stack_a_cpy);
 void	sb(tstack* stack, int i);
 void	ss(tstack* a, tstack* b);
+void	sa_operation(tstack* stack, tstack* stack_cpy);
 //Pushing
 void	pa(tstack* a, tstack *b, int i);
+void	pa_op(tstack *stack_a, tstack *stack_b, tstack *stack_a_cpy, tstack *bcpy);
+void	pb_op(tstack *stack_a, tstack *stack_b, tstack *stack_a_cpy, tstack *bcpy);
 void	pb(tstack* a, tstack *b, int i);
 //Rotating
 void	ra(tstack* a, int num);
 void	rb(tstack* b, int num);
 void	rr(tstack* a, tstack *b);
+void ra_operation(tstack *stack_a, tstack *stack_a_cpy);
 //Reverse rotating
 void	rra(tstack* a, int num);
 void	rrb(tstack* a, int num);
 void	rrr(tstack *a, tstack *b);
+void double_rra_op(tstack *stack_a, tstack *stack_a_cpy);
+void	rra_operation(tstack *stack_a, tstack *stack_a_cpy);
 //###Input checking###
 int		check_for_int_overflow(int num, char *str);
 int		check_input(char *str,tstack **stack_a);
