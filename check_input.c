@@ -6,13 +6,13 @@
 /*   By: jkaczmar <jkaczmar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/27 18:49:46 by jkaczmar          #+#    #+#             */
-/*   Updated: 2022/02/27 20:06:06 by jkaczmar         ###   ########.fr       */
+/*   Updated: 2022/02/27 21:35:38 by jkaczmar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	check_input(char *str, tstack **stack_a)
+int	check_input(char *str, t_stack **stack_a)
 {
 	int	num;
 
@@ -29,7 +29,7 @@ int	check_input(char *str, tstack **stack_a)
 	}
 }
 
-int	check_for_duplicates(tstack **stack_a)
+int	check_for_duplicates(t_stack **stack_a)
 {
 	int	i;
 	int	j;
@@ -53,7 +53,7 @@ int	check_for_duplicates(tstack **stack_a)
 	return (0);
 }
 
-void	rotate_till_value_at_top(tstack **stack_sorted, tstack **actual_stack,
+void	rotate_till_value_at_top(t_stack **stack_sorted, t_stack **actual_stack,
 								int val)
 {
 	if (val == stack_sorted[0]->array[0])
@@ -71,9 +71,9 @@ void	rotate_till_value_at_top(tstack **stack_sorted, tstack **actual_stack,
 	}
 }
 
-void	change_arr_values(tstack **input_stack,
-						tstack **stack_a_copy,
-						tstack *sorted_cpy)
+void	change_arr_values(t_stack **input_stack,
+						t_stack **stack_a_copy,
+						t_stack *sorted_cpy)
 {
 	int	index;
 	int	j;

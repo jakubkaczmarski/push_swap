@@ -6,13 +6,13 @@
 /*   By: jkaczmar <jkaczmar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/27 19:35:52 by jkaczmar          #+#    #+#             */
-/*   Updated: 2022/02/27 19:45:55 by jkaczmar         ###   ########.fr       */
+/*   Updated: 2022/02/27 21:36:01 by jkaczmar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	printstack(tstack *stack)
+void	print_stack(t_stack *stack)
 {
 	int	i;
 
@@ -26,18 +26,18 @@ void	printstack(tstack *stack)
 	}
 }
 
-tstack	*createstack(unsigned int capacity)
+t_stack	*createstack(unsigned int capacity)
 {
-	tstack	*stack;
+	t_stack	*stack;
 
-	stack = (tstack *)malloc(sizeof(tstack));
+	stack = (t_stack *)malloc(sizeof(t_stack));
 	stack->capacity = capacity;
 	stack->top = -1;
 	stack->array = (int *)malloc(stack->capacity * sizeof(int));
 	return (stack);
 }
 
-void	indexedarr(tstack *stack_cpy)
+void	indexedarr(t_stack *stack_cpy)
 {
 	int	i;
 	int	temp;
@@ -63,7 +63,7 @@ void	indexedarr(tstack *stack_cpy)
 	}
 }
 
-int	issorted(tstack *stack)
+int	issorted(t_stack *stack)
 {
 	int	i;
 
@@ -79,7 +79,7 @@ int	issorted(tstack *stack)
 	return (1);
 }
 
-int	issorted_desc(tstack *stack)
+int	issorted_desc(t_stack *stack)
 {
 	int	i;
 

@@ -6,13 +6,13 @@
 /*   By: jkaczmar <jkaczmar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/20 17:27:31 by jkaczmar          #+#    #+#             */
-/*   Updated: 2022/02/27 19:52:31 by jkaczmar         ###   ########.fr       */
+/*   Updated: 2022/02/27 21:35:52 by jkaczmar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ra(tstack *a, int num)
+void	ra(t_stack *a, int num)
 {
 	int	temp;
 	int	j;
@@ -33,7 +33,7 @@ void	ra(tstack *a, int num)
 		write(1, "ra\n", 3);
 }
 
-void	rb(tstack *a, int num)
+void	rb(t_stack *a, int num)
 {
 	int	temp;
 	int	j;
@@ -54,7 +54,7 @@ void	rb(tstack *a, int num)
 		write(1, "rb\n", 3);
 }
 
-void	rra(tstack *a, int num)
+void	rra(t_stack *a, int num)
 {
 	int	temp;
 	int	i;
@@ -75,7 +75,7 @@ void	rra(tstack *a, int num)
 		write(1, "rra\n", 4);
 }
 
-void	rrb(tstack *a, int num)
+void	rrb(t_stack *a, int num)
 {
 	int	temp;
 	int	i;
@@ -96,7 +96,7 @@ void	rrb(tstack *a, int num)
 		write(1, "rrb\n", 4);
 }
 
-void	rrr(tstack *a, tstack *b)
+void	rrr(t_stack *a, t_stack *b)
 {
 	ra(a, 0);
 	rb(b, 0);

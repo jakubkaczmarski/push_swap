@@ -6,16 +6,16 @@
 /*   By: jkaczmar <jkaczmar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/27 18:52:04 by jkaczmar          #+#    #+#             */
-/*   Updated: 2022/02/27 21:30:40 by jkaczmar         ###   ########.fr       */
+/*   Updated: 2022/02/27 21:35:35 by jkaczmar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	freeall(tstack *stack_a,
-				tstack *stack_a_cpy,
-				tstack *stack_b,
-				tstack *stack_b_cpy)
+int	freeall(t_stack *stack_a,
+				t_stack *stack_a_cpy,
+				t_stack *stack_b,
+				t_stack *stack_b_cpy)
 {
 	free(stack_a_cpy);
 	free(stack_a);
@@ -24,9 +24,9 @@ int	freeall(tstack *stack_a,
 	return (0);
 }
 
-void	initialize_arr(tstack **stack_cpy, tstack **stack_a)
+void	initialize_arr(t_stack **stack_cpy, t_stack **stack_a)
 {
-	tstack	*stack_arr;
+	t_stack	*stack_arr;
 
 	stack_cpy[0] = cpy_stack(stack_a[0], stack_cpy[0]);
 	stack_arr = createstack(stack_cpy[0]->capacity);
@@ -36,10 +36,10 @@ void	initialize_arr(tstack **stack_cpy, tstack **stack_a)
 	free(stack_arr);
 }
 
-void	runthesort(tstack **stack_a,
-						tstack **cpy_stack_a,
-						tstack **stack_b_cpy,
-						tstack **stack_b)
+void	runthesort(t_stack **stack_a,
+						t_stack **cpy_stack_a,
+						t_stack **stack_b_cpy,
+						t_stack **stack_b)
 {
 	if (stack_a[0]->top + 1 <= 5)
 	{
@@ -58,10 +58,10 @@ void	runthesort(tstack **stack_a,
 
 int	main(int argc, char **argv)
 {
-	tstack	*stack_a;
-	tstack	*stack_b;
-	tstack	*stack_b_cpy;
-	tstack	*cpy_stack_a;
+	t_stack	*stack_a;
+	t_stack	*stack_b;
+	t_stack	*stack_b_cpy;
+	t_stack	*cpy_stack_a;
 	int		i;
 
 	if (argc < 2)

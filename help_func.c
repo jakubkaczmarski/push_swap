@@ -6,7 +6,7 @@
 /*   By: jkaczmar <jkaczmar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/27 18:50:36 by jkaczmar          #+#    #+#             */
-/*   Updated: 2022/02/27 19:50:41 by jkaczmar         ###   ########.fr       */
+/*   Updated: 2022/02/27 21:35:43 by jkaczmar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ int	check_for_int_overflow(int num, char *str)
 	}
 }
 
-tstack	*cpy_stack(tstack *stack_a, tstack *cpy_stack_a)
+t_stack	*cpy_stack(t_stack *stack_a, t_stack *cpy_stack_a)
 {
 	int	i;
 

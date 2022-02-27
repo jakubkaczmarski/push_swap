@@ -6,13 +6,13 @@
 /*   By: jkaczmar <jkaczmar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 16:32:53 by jkaczmar          #+#    #+#             */
-/*   Updated: 2022/02/27 21:06:30 by jkaczmar         ###   ########.fr       */
+/*   Updated: 2022/02/27 21:35:55 by jkaczmar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sort_small_arr_2(tstack **stack_sorted, tstack **actual_stack)
+void	sort_small_arr_2(t_stack **stack_sorted, t_stack **actual_stack)
 {
 	if (stack_sorted[0]->array[0] < stack_sorted[0]->array[1])
 	{
@@ -20,7 +20,7 @@ void	sort_small_arr_2(tstack **stack_sorted, tstack **actual_stack)
 	}
 }
 
-void	sort_small_arr_3(tstack **stack_sorted, tstack **actual_stack)
+void	sort_small_arr_3(t_stack **stack_sorted, t_stack **actual_stack)
 {
 	if (stack_sorted[0]->array[2] < stack_sorted[0]->array[1]
 		&& stack_sorted[0]->array[1] > stack_sorted[0]->array[0]
@@ -47,10 +47,10 @@ void	sort_small_arr_3(tstack **stack_sorted, tstack **actual_stack)
 		sa_operation(actual_stack[0], stack_sorted[0]);
 }
 
-void	sort_small_arr_5(tstack **stack_sorted,
-						tstack **actual_stack,
-						tstack **stack_b_cpy,
-						tstack **stack_b)
+void	sort_small_arr_5(t_stack **stack_sorted,
+						t_stack **actual_stack,
+						t_stack **stack_b_cpy,
+						t_stack **stack_b)
 {
 	rotate_till_value_at_top(stack_sorted, actual_stack, 0);
 	pb_op(actual_stack[0], stack_b[0], stack_sorted[0], stack_b_cpy[0]);
@@ -61,10 +61,10 @@ void	sort_small_arr_5(tstack **stack_sorted,
 	pa_op(actual_stack[0], stack_b[0], stack_sorted[0], stack_b_cpy[0]);
 }
 
-void	sort_small_arr_4(tstack **stack_sorted,
-						tstack **actual_stack,
-						tstack **stack_b_cpy,
-						tstack **stack_b)
+void	sort_small_arr_4(t_stack **stack_sorted,
+						t_stack **actual_stack,
+						t_stack **stack_b_cpy,
+						t_stack **stack_b)
 {
 	rotate_till_value_at_top(stack_sorted, actual_stack, 0);
 	pb_op(actual_stack[0], stack_b[0], stack_sorted[0], stack_b_cpy[0]);
@@ -72,10 +72,10 @@ void	sort_small_arr_4(tstack **stack_sorted,
 	pa_op(actual_stack[0], stack_b[0], stack_sorted[0], stack_b_cpy[0]);
 }
 
-void	radix_sort(tstack **stack_sorted,
-				tstack **ac_stack,
-				tstack **stack_b,
-				tstack **stack_b_cpy)
+void	radix_sort(t_stack **stack_sorted,
+				t_stack **ac_stack,
+				t_stack **stack_b,
+				t_stack **stack_b_cpy)
 {
 	int	size;
 	int	i;

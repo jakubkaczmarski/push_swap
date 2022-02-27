@@ -6,13 +6,13 @@
 /*   By: jkaczmar <jkaczmar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/27 19:33:18 by jkaczmar          #+#    #+#             */
-/*   Updated: 2022/02/27 19:38:08 by jkaczmar         ###   ########.fr       */
+/*   Updated: 2022/02/27 21:36:03 by jkaczmar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sa(tstack *stack, int i)
+void	sa(t_stack *stack, int i)
 {
 	int	temp;
 
@@ -26,7 +26,7 @@ void	sa(tstack *stack, int i)
 		write(1, "sa\n", 3);
 }
 
-void	sb(tstack *stack, int i)
+void	sb(t_stack *stack, int i)
 {
 	int	temp;
 
@@ -40,14 +40,14 @@ void	sb(tstack *stack, int i)
 		write(1, "sb\n", 3);
 }
 
-void	ss(tstack *a, tstack *b)
+void	ss(t_stack *a, t_stack *b)
 {
 	sa(a, 0);
 	sb(b, 0);
 	write(1, "ss\n", 3);
 }
 
-void	pa(tstack *a, tstack *b, int i)
+void	pa(t_stack *a, t_stack *b, int i)
 {
 	if (isempty(b))
 		return ;
@@ -56,7 +56,7 @@ void	pa(tstack *a, tstack *b, int i)
 		write(1, "pa\n", 3);
 }
 
-void	pb(tstack *a, tstack *b, int i)
+void	pb(t_stack *a, t_stack *b, int i)
 {
 	if (isempty(a))
 		return ;
