@@ -6,7 +6,7 @@
 /*   By: jkaczmar <jkaczmar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 16:32:54 by jkaczmar          #+#    #+#             */
-/*   Updated: 2022/02/26 17:45:28 by jkaczmar         ###   ########.fr       */
+/*   Updated: 2022/02/27 16:00:07 by jkaczmar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,19 +33,19 @@ int peek(tstack* stack);
 void printStack(tstack* stack);
 //###Push_swap_instructions###
 //Swaping
-void sa(tstack* stack);
-void sb(tstack* stack);
+void sa(tstack* stack, int i);
+void sb(tstack* stack, int i);
 void ss(tstack* a, tstack* b);
 //Pushing
-void pa(tstack* a, tstack *b);
-void pb(tstack* a, tstack *b);
+void pa(tstack* a, tstack *b, int i);
+void pb(tstack* a, tstack *b, int i);
 //Rotating
-void ra(tstack* a);
-void rb(tstack* b);
+void ra(tstack* a, int num);
+void rb(tstack* b, int num);
 void rr(tstack* a, tstack *b);
 //Reverse rotating
-void rra(tstack* a);
-void rrb(tstack* a);
+void rra(tstack* a, int num);
+void rrb(tstack* a, int num);
 void rrr(tstack *a, tstack *b);
 //###Input checking###
 int check_for_int_overflow(int num, char *str);
@@ -65,5 +65,6 @@ int issorted_desc(tstack *stack);
 //###Array with Indexes creation ###//
 void indexedarr(tstack *stack_cpy);
 //###Helper Func###
+void freeAll(tstack *stack_a, tstack *stack_a_cpy, tstack *stack_b,tstack *stack_b_cpy, tstack *cpy_stack_a_arr);
 int	ft_atoi(const char *str);
 char	*ft_itoa(int n);

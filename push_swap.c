@@ -1,5 +1,13 @@
 #include "push_swap.h"
 
+void freeAll(tstack *stack_a, tstack *stack_a_cpy, tstack *stack_b,tstack *stack_b_cpy, tstack *cpy_stack_a_arr)
+{
+    free(stack_a_cpy);
+    free(stack_a);
+    free(stack_b);
+    free(stack_b_cpy);
+    free(cpy_stack_a_arr);
+}
 int main(int argc, char **argv)
 {
     if(argc < 2)
@@ -19,20 +27,14 @@ int main(int argc, char **argv)
     {
         if(check_input(argv[i], &stack_a) == 1)
         {
-            free(cpy_stack_a);
-            free(stack_a);
-            free(stack_b);
-            free(stack_b_cpy);
+            freeAll(stack_a,cpy_stack_a, stack_b, stack_b_cpy, cpy_stack_a_arr);
             return 0;
         }
         i--;
     }
     if(check_for_duplicates(&stack_a) == 1)
     {
-        free(cpy_stack_a);
-        free(stack_a);
-        free(stack_b);
-        free(stack_b_cpy);
+        freeAll(stack_a,cpy_stack_a, stack_b, stack_b_cpy, cpy_stack_a_arr);
         return 0;
     }
     cpy_stack_a_arr = cpy_stack(stack_a, cpy_stack_a_arr);
@@ -41,10 +43,7 @@ int main(int argc, char **argv)
     change_arr_values(&stack_a,&cpy_stack_a,cpy_stack_a_arr);
     if(issorted(cpy_stack_a) == 1)
     {
-        free(cpy_stack_a);
-        free(stack_a);
-        free(stack_b);
-        free(stack_b_cpy);
+        freeAll(stack_a,cpy_stack_a, stack_b, stack_b_cpy, cpy_stack_a_arr);
         return 0;
     }
         
@@ -67,9 +66,6 @@ int main(int argc, char **argv)
     }else{
         radix_sort(&cpy_stack_a, &stack_a, &stack_b, &stack_b_cpy);
     }
-    
-    free(cpy_stack_a);
-    free(stack_a);
-    free(stack_b);
-    free(stack_b_cpy);
+    // printStack(stack_a);
+    freeAll(stack_a,cpy_stack_a, stack_b, stack_b_cpy, cpy_stack_a_arr);
 }

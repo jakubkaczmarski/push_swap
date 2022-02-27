@@ -6,12 +6,20 @@
 /*   By: jkaczmar <jkaczmar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 16:32:53 by jkaczmar          #+#    #+#             */
-/*   Updated: 2022/02/26 23:09:01 by jkaczmar         ###   ########.fr       */
+/*   Updated: 2022/02/27 16:01:44 by jkaczmar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
+//stack a
+//a.value = 0;
+//stack *a
+//a->value = 0;
+//struct stack s;
+//s stack stack1;
+//stack1.value = 0;
+//s stack *ptr;
+//ptr->value = 0;
 tstack *cpy_stack(tstack *stack_a, tstack *cpy_stack_a)
 {
     int i = 0;
@@ -93,9 +101,8 @@ void sort_small_arr_2(tstack **stack_sorted, tstack **actual_stack)
 
     if(stack_sorted[0]->array[0] < stack_sorted[0]->array[1])
     {
-        ft_printf("sa\n");
-        sa(stack_sorted[0]);
-        sa(actual_stack[0]);    
+        sa(stack_sorted[0], 0);
+        sa(actual_stack[0], 1);    
     }
         
 }
@@ -104,46 +111,43 @@ void sort_small_arr_3(tstack **stack_sorted, tstack **actual_stack)
 
     if(stack_sorted[0]->array[2] < stack_sorted[0]->array[1] && stack_sorted[0]->array[1] > stack_sorted[0]->array[0] && stack_sorted[0]->array[2] > stack_sorted[0]->array[0])
     {
-        ft_printf("rra\n");
-        rra(stack_sorted[0]);
-        rra(actual_stack[0]);
+        rra(stack_sorted[0], 0);
+        rra(actual_stack[0], 1);
     }
     else if(stack_sorted[0]->array[2] > stack_sorted[0]->array[1] && stack_sorted[0]->array[1] > stack_sorted[0]->array[0])
     {
-        ft_printf("sa\n");
-        sa(stack_sorted[0]);
-        sa(actual_stack[0]);
-        ft_printf("rra\n");
-        rra(stack_sorted[0]);
-        rra(actual_stack[0]);
+        sa(stack_sorted[0], 0);
+        sa(actual_stack[0], 1);
+        rra(stack_sorted[0], 0);
+        rra(actual_stack[0], 1);
     }
     else if(stack_sorted[0]->array[2] < stack_sorted[0]->array[1] && stack_sorted[0]->array[1] > stack_sorted[0]->array[0] && stack_sorted[0]->array[2] < stack_sorted[0]->array[0])
     {
-        ft_printf("sa\n");
-        sa(stack_sorted[0]);
-        sa(actual_stack[0]);
-        ft_printf("ra\n");
-        ra(stack_sorted[0]);
-        ra(actual_stack[0]);
+        // ft_printf("sa\n");
+        sa(stack_sorted[0], 0);
+        sa(actual_stack[0], 1);
+        // ft_printf("ra\n");
+        ra(stack_sorted[0], 0);
+        ra(actual_stack[0], 1);
     }
     else if(stack_sorted[0]->array[2] > stack_sorted[0]->array[1] && stack_sorted[0]->array[1] < stack_sorted[0]->array[0] && stack_sorted[0]->array[0] < stack_sorted[0]->array[2])
     {
-        ft_printf("ra\n");
-        ra(stack_sorted[0]);
-        ra(actual_stack[0]);
+        // ft_printf("ra\n");
+        ra(stack_sorted[0], 0);
+        ra(actual_stack[0], 1);
     }else if(stack_sorted[0]->array[2] < stack_sorted[0]->array[1] && stack_sorted[0]->array[1] > stack_sorted[0]->array[0])
     {
-        ft_printf("rra\n");
-        rra(stack_sorted[0]);
-        rra(actual_stack[0]);
-        ft_printf("rra\n");
-        rra(stack_sorted[0]);
-        rra(actual_stack[0]);
+        // ft_printf("rra\n");
+        rra(stack_sorted[0], 0);
+        rra(actual_stack[0], 1);
+        // ft_printf("rra\n");
+        rra(stack_sorted[0], 0);
+        rra(actual_stack[0], 1);
     }else if(stack_sorted[0]->array[2] > stack_sorted[0]->array[1] && stack_sorted[0]->array[1] < stack_sorted[0]->array[0] && stack_sorted[0]->array[0] > stack_sorted[0]->array[2])
     {
-        ft_printf("sa\n");
-        sa(stack_sorted[0]);
-        sa(actual_stack[0]);
+        // ft_printf("sa\n");
+        sa(stack_sorted[0], 0);
+        sa(actual_stack[0], 1);
     }
     // printStack(actual_stack[0]);
 }
@@ -155,17 +159,17 @@ void rotate_till_value_at_top(tstack **stack_sorted, tstack **actual_stack, int 
     // ft_printf("%d \n", stack_sorted[0]->array[0]);
     if (val == stack_sorted[0]->array[0])
     {
-        ft_printf("rra\n");
-        rra(stack_sorted[0]);
-        rra(actual_stack[0]);
+        // ft_printf("rra\n");
+        rra(stack_sorted[0], 0);
+        rra(actual_stack[0], 1);
         
     }else
     {
         while(stack_sorted[0]->array[stack_sorted[0]->top] != val)
         {
-            ft_printf("ra\n");
-            ra(stack_sorted[0]);
-            ra(actual_stack[0]);
+            // ft_printf("ra\n");
+            ra(stack_sorted[0], 0);
+            ra(actual_stack[0], 1);
         }
     }
    
@@ -200,35 +204,30 @@ void sort_small_arr_5(tstack **stack_sorted, tstack **actual_stack, tstack **sta
     //-71 -306 -645 -775 -961
     rotate_till_value_at_top(stack_sorted,actual_stack, 0);
     // printStack(actual_stack[0]);
-    ft_printf("pb\n");
-    pb(stack_sorted[0], stack_b_cpy[0]);
-    pb(actual_stack[0], stack_b[0]);
+
+    pb(stack_sorted[0], stack_b_cpy[0], 0);
+    pb(actual_stack[0], stack_b[0], 1);
     rotate_till_value_at_top(stack_sorted,actual_stack, 1);
-    ft_printf("pb\n");
-    pb(stack_sorted[0], stack_b_cpy[0]);
-    pb(actual_stack[0], stack_b[0]);
+
+    pb(stack_sorted[0], stack_b_cpy[0], 0);
+    pb(actual_stack[0], stack_b[0], 1);
     sort_small_arr_3(stack_sorted, actual_stack);
   
-    ft_printf("pa\n");
-    ft_printf("pa\n");
-    pa(stack_sorted[0], stack_b_cpy[0]);
-    pa(actual_stack[0], stack_b[0]);
-    pa(stack_sorted[0], stack_b_cpy[0]);
-    pa(actual_stack[0], stack_b[0]);
+    pa(stack_sorted[0], stack_b_cpy[0], 0);
+    pa(actual_stack[0], stack_b[0], 1);
+    pa(stack_sorted[0], stack_b_cpy[0], 0);
+    pa(actual_stack[0], stack_b[0], 1);
         //   printStack(actual_stack[0]);
     //     ft_printf("Top : %d \n",actual_stack[0]->array[actual_stack[0]->top]);
 }
 void sort_small_arr_4(tstack **stack_sorted, tstack **actual_stack, tstack **stack_b_cpy, tstack **stack_b)
 {
     rotate_till_value_at_top(stack_sorted,actual_stack, 0);
-    ft_printf("pb\n");
-    pb(stack_sorted[0], stack_b_cpy[0]);
-    pb(actual_stack[0], stack_b[0]);
+    pb(stack_sorted[0], stack_b_cpy[0], 0);
+    pb(actual_stack[0], stack_b[0], 1);
     sort_small_arr_3(stack_sorted, actual_stack);
-    ft_printf("pa\n");
-    pa(stack_sorted[0], stack_b_cpy[0]);
-    pa(actual_stack[0], stack_b[0]);
-    printStack(actual_stack[0]);
+    pa(stack_sorted[0], stack_b_cpy[0], 0);
+    pa(actual_stack[0], stack_b[0] ,1);
 }
 void radix_sort(tstack **stack_sorted, tstack **actual_stack, tstack **stack_b, tstack **stack_b_cpy)
 {
@@ -245,24 +244,21 @@ void radix_sort(tstack **stack_sorted, tstack **actual_stack, tstack **stack_b, 
             if(((num >> i)&1))
             {
                 instructions++;
-                ft_printf("ra\n");
-                ra(stack_sorted[0]);
-                ra(actual_stack[0]);
+                ra(stack_sorted[0], 0);
+                ra(actual_stack[0], 1);
             }
             else{
                 instructions++;
-                ft_printf("pb\n");
-                pb(stack_sorted[0], stack_b_cpy[0]);
-                pb(actual_stack[0], stack_b[0]);
+                pb(stack_sorted[0], stack_b_cpy[0], 0);
+                pb(actual_stack[0], stack_b[0], 1);
             }
             j++;
         }
         while(isEmpty(stack_b_cpy[0]) == 0)
         {
             instructions++;
-            ft_printf("pa\n");
-            pa(stack_sorted[0], stack_b_cpy[0]);
-            pa(actual_stack[0], stack_b[0]);
+            pa(stack_sorted[0], stack_b_cpy[0],0);
+            pa(actual_stack[0], stack_b[0], 1);
         }
         i++;
     }
