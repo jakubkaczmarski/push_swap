@@ -6,7 +6,7 @@
 /*   By: jkaczmar <jkaczmar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 16:32:54 by jkaczmar          #+#    #+#             */
-/*   Updated: 2022/02/27 21:06:49 by jkaczmar         ###   ########.fr       */
+/*   Updated: 2022/02/27 21:25:50 by jkaczmar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ int		issorted_desc(tstack *stack);
 //###Array with Indexes creation ###//
 void	indexedarr(tstack *stack_cpy);
 //###Helper Func###
-void	freeall(tstack *stack_a, tstack *stack_a_cpy, tstack *stack_b,tstack *stack_b_cpy, tstack *cpy_stack_a_arr);
+int	freeall(tstack *stack_a, tstack *stack_a_cpy, tstack *stack_b,tstack *stack_b_cpy);
 int		ft_atoi(const char *str);
 char	*ft_itoa(int n);
 
