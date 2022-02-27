@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   help_func.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jkaczmar <jkaczmar@student.42wolfsburg.de> +#+  +:+       +#+        */
+/*   By: jkaczmar <jkaczmar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/27 18:50:36 by jkaczmar          #+#    #+#             */
-/*   Updated: 2022/02/27 18:59:10 by jkaczmar         ###   ########.fr       */
+/*   Updated: 2022/02/27 19:50:41 by jkaczmar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,4 +71,17 @@ int	check_for_int_overflow(int num, char *str)
 	{
 		return (0);
 	}
+}
+
+tstack	*cpy_stack(tstack *stack_a, tstack *cpy_stack_a)
+{
+	int	i;
+
+	i = 0;
+	while (i < stack_a->top + 1)
+	{
+		push(cpy_stack_a, stack_a->array[i]);
+		i++;
+	}
+	return (cpy_stack_a);
 }

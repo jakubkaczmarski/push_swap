@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rotating.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jkaczmar <jkaczmar@student.42wolfsburg.de> +#+  +:+       +#+        */
+/*   By: jkaczmar <jkaczmar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/20 17:27:31 by jkaczmar          #+#    #+#             */
-/*   Updated: 2022/02/27 18:52:33 by jkaczmar         ###   ########.fr       */
+/*   Updated: 2022/02/27 19:52:31 by jkaczmar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	ra(tstack *a, int num)
 
 	temp = 0;
 	j = a->top;
-	if (isEmpty(a) || a->top == 0)
+	if (isempty(a) || a->top == 0)
 		return ;
 	i = a->top - 1;
 	temp = a->array[a->top];
@@ -32,6 +32,7 @@ void	ra(tstack *a, int num)
 	if (num == 1)
 		write(1, "ra\n", 3);
 }
+
 void	rb(tstack *a, int num)
 {
 	int	temp;
@@ -40,7 +41,7 @@ void	rb(tstack *a, int num)
 
 	temp = 0;
 	j = a->top;
-	if (isEmpty(a) || a->top == 0)
+	if (isempty(a) || a->top == 0)
 		return ;
 	i = a->top - 1;
 	temp = a->array[a->top];
@@ -52,12 +53,7 @@ void	rb(tstack *a, int num)
 	if (num == 1)
 		write(1, "rb\n", 3);
 }
-void	rr(tstack *a, tstack *b)
-{
-	ra(a, 0);
-	rb(b, 0);
-	write(1, "rr\n", 3);
-}
+
 void	rra(tstack *a, int num)
 {
 	int	temp;
@@ -67,7 +63,7 @@ void	rra(tstack *a, int num)
 	temp = 0;
 	i = 0;
 	j = 1;
-	if (isEmpty(a) || a->top == 0)
+	if (isempty(a) || a->top == 0)
 		return ;
 	temp = a->array[0];
 	while (i != a->top)
@@ -78,6 +74,7 @@ void	rra(tstack *a, int num)
 	if (num == 1)
 		write(1, "rra\n", 4);
 }
+
 void	rrb(tstack *a, int num)
 {
 	int	temp;
@@ -87,7 +84,7 @@ void	rrb(tstack *a, int num)
 	temp = 0;
 	i = 0;
 	j = 1;
-	if (isEmpty(a) || a->top == 0)
+	if (isempty(a) || a->top == 0)
 		return ;
 	temp = a->array[0];
 	while (i != a->top)
@@ -98,6 +95,7 @@ void	rrb(tstack *a, int num)
 	if (num == 1)
 		write(1, "rrb\n", 4);
 }
+
 void	rrr(tstack *a, tstack *b)
 {
 	ra(a, 0);

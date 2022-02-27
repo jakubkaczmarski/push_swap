@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_input.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jkaczmar <jkaczmar@student.42wolfsburg.de> +#+  +:+       +#+        */
+/*   By: jkaczmar <jkaczmar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/27 18:49:46 by jkaczmar          #+#    #+#             */
-/*   Updated: 2022/02/27 18:57:42 by jkaczmar         ###   ########.fr       */
+/*   Updated: 2022/02/27 19:52:14 by jkaczmar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,4 +51,44 @@ int	check_for_duplicates(tstack **stack_a)
 		i++;
 	}
 	return (0);
+}
+
+void	rotate_till_value_at_top(tstack **stack_sorted, tstack **actual_stack, int val)
+{
+	if (val == stack_sorted[0]->array[0])
+	{
+		rra(stack_sorted[0], 0);
+		rra(actual_stack[0], 1);
+	}
+	else
+	{
+		while (stack_sorted[0]->array[stack_sorted[0]->top] != val)
+		{
+			ra(stack_sorted[0], 0);
+			ra(actual_stack[0], 1);
+		}
+	}
+}
+
+void	change_arr_values(tstack **input_stack,
+						tstack **stack_a_copy,
+						tstack *sorted_cpy)
+{
+	int	index;
+	int	j;
+
+	index = 0;
+	while (index < (int)stack_a_copy[0]->capacity - 1)
+	{
+		j = 0;
+		while (j < (int)stack_a_copy[0]->capacity - 1)
+		{
+			if (input_stack[0]->array[index] == sorted_cpy->array[j])
+			{
+				stack_a_copy[0]->array[index] = j;
+			}
+			j++;
+		}
+		index++;
+	}
 }
