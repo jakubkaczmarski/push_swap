@@ -6,7 +6,7 @@
 /*   By: jkaczmar <jkaczmar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/27 18:49:46 by jkaczmar          #+#    #+#             */
-/*   Updated: 2022/02/27 19:52:14 by jkaczmar         ###   ########.fr       */
+/*   Updated: 2022/02/27 20:06:06 by jkaczmar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,8 @@ int	check_for_duplicates(tstack **stack_a)
 	return (0);
 }
 
-void	rotate_till_value_at_top(tstack **stack_sorted, tstack **actual_stack, int val)
+void	rotate_till_value_at_top(tstack **stack_sorted, tstack **actual_stack,
+								int val)
 {
 	if (val == stack_sorted[0]->array[0])
 	{

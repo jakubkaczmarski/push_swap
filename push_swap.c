@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jkaczmar <jkaczmar@student.42wolfsburg.de> +#+  +:+       +#+        */
+/*   By: jkaczmar <jkaczmar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/27 18:52:04 by jkaczmar          #+#    #+#             */
-/*   Updated: 2022/02/27 19:03:58 by jkaczmar         ###   ########.fr       */
+/*   Updated: 2022/02/27 20:05:20 by jkaczmar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	freeAll(tstack *stack_a,
+void	freeall(tstack *stack_a,
 				tstack *stack_a_cpy,
 				tstack *stack_b,
 				tstack *stack_b_cpy,
@@ -46,14 +46,14 @@ int		main(int argc, char **argv)
 	{
 		if (check_input(argv[i], &stack_a) == 1)
 		{
-			freeAll(stack_a, cpy_stack_a, stack_b, stack_b_cpy, cpy_stack_a_arr);
+			freeall(stack_a, cpy_stack_a, stack_b, stack_b_cpy, cpy_stack_a_arr);
 			return (0);
 		}
 		i--;
 	}
 	if (check_for_duplicates(&stack_a) == 1)
 	{
-		freeAll(stack_a, cpy_stack_a, stack_b, stack_b_cpy, cpy_stack_a_arr);
+		freeall(stack_a, cpy_stack_a, stack_b, stack_b_cpy, cpy_stack_a_arr);
 		return (0);
 	}
 	cpy_stack_a_arr = cpy_stack(stack_a, cpy_stack_a_arr);
@@ -62,7 +62,7 @@ int		main(int argc, char **argv)
 	change_arr_values(&stack_a, &cpy_stack_a, cpy_stack_a_arr);
 	if (issorted(cpy_stack_a) == 1)
 	{
-		freeAll(stack_a, cpy_stack_a, stack_b, stack_b_cpy, cpy_stack_a_arr);
+		freeall(stack_a, cpy_stack_a, stack_b, stack_b_cpy, cpy_stack_a_arr);
 		return (0);
 	}
 	if (stack_a->top + 1 <= 5)
@@ -89,5 +89,5 @@ int		main(int argc, char **argv)
 		radix_sort(&cpy_stack_a, &stack_a, &stack_b, &stack_b_cpy);
 	}
 	// printStack(stack_a);
-	freeAll(stack_a, cpy_stack_a, stack_b, stack_b_cpy, cpy_stack_a_arr);
+	freeall(stack_a, cpy_stack_a, stack_b, stack_b_cpy, cpy_stack_a_arr);
 }
