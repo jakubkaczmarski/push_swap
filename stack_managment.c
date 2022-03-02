@@ -3,28 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   stack_managment.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jkaczmar <jkaczmar@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jkaczmar <jkaczmar@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/27 19:35:52 by jkaczmar          #+#    #+#             */
-/*   Updated: 2022/02/27 21:36:01 by jkaczmar         ###   ########.fr       */
+/*   Updated: 2022/03/02 14:58:08 by jkaczmar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-void	print_stack(t_stack *stack)
-{
-	int	i;
-
-	if (isempty(stack))
-		return ;
-	i = stack->top;
-	while (i != -1)
-	{
-		ft_printf("%d\n", stack->array[i]);
-		i--;
-	}
-}
 
 t_stack	*createstack(unsigned int capacity)
 {
