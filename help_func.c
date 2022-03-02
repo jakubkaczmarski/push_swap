@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   help_func.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jkaczmar <jkaczmar@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jkaczmar <jkaczmar@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/27 18:50:36 by jkaczmar          #+#    #+#             */
-/*   Updated: 2022/02/27 21:35:43 by jkaczmar         ###   ########.fr       */
+/*   Updated: 2022/03/02 14:50:31 by jkaczmar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,7 @@ int	check_for_int_overflow(int num, char *str)
 	char	*str1;
 
 	str1 = ft_itoa(num);
+	free(str1);
 	if (ft_strcmp(str1, str) == 0)
 		return (1);
 	else

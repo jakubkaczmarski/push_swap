@@ -6,7 +6,7 @@
 /*   By: jkaczmar <jkaczmar@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/20 17:34:27 by jkaczmar          #+#    #+#             */
-/*   Updated: 2022/02/27 18:57:52 by jkaczmar         ###   ########.fr       */
+/*   Updated: 2022/03/02 14:48:53 by jkaczmar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,10 @@ char	*ft_itoa(int n)
 		len++;
 	resarr = malloc(sizeof(char) * (len + 1));
 	if (!(resarr))
+	{
+		free(resarr);
 		return (NULL);
+	}
 	resarr[len] = '\0';
 	checkedgecase(resarr, &negative, n, &len);
 	return (resarr);
