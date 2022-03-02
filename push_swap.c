@@ -6,7 +6,7 @@
 /*   By: jkaczmar <jkaczmar@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/27 18:52:04 by jkaczmar          #+#    #+#             */
-/*   Updated: 2022/03/02 14:34:52 by jkaczmar         ###   ########.fr       */
+/*   Updated: 2022/03/02 14:43:18 by jkaczmar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,14 @@ int	freeall(t_stack *stack_a,
 				t_stack *stack_b,
 				t_stack *stack_b_cpy)
 {
-	free(stack_a_cpy);
-	free(stack_a);
-	free(stack_b);
-	free(stack_b_cpy);
 	free(stack_a_cpy->array);
 	free(stack_a->array);
 	free(stack_b_cpy->array);
 	free(stack_b->array);
+	free(stack_a_cpy);
+	free(stack_a);
+	free(stack_b);
+	free(stack_b_cpy);
 	return (0);
 }
 
