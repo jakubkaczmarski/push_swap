@@ -6,7 +6,7 @@
 /*   By: jkaczmar <jkaczmar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/27 19:52:58 by jkaczmar          #+#    #+#             */
-/*   Updated: 2022/02/27 21:35:57 by jkaczmar         ###   ########.fr       */
+/*   Updated: 2022/03/08 15:58:53 by jkaczmar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,12 @@ void	sa_rra_op(t_stack *stack_a, t_stack *stack_a_cpy)
 {
 	sa_operation(stack_a, stack_a_cpy);
 	rra_operation(stack_a, stack_a_cpy);
+}
+
+void	sa_ra_op(t_stack *stack_a, t_stack *stack_a_cpy)
+{
+	sa_operation(stack_a, stack_a_cpy);
+	ra_operation(stack_a, stack_a_cpy);
 }
 
 void	double_rra_op(t_stack *stack_a, t_stack *stack_a_c)

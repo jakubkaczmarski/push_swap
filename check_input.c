@@ -6,7 +6,7 @@
 /*   By: jkaczmar <jkaczmar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/27 18:49:46 by jkaczmar          #+#    #+#             */
-/*   Updated: 2022/02/27 21:35:38 by jkaczmar         ###   ########.fr       */
+/*   Updated: 2022/03/08 17:35:50 by jkaczmar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,17 +58,17 @@ void	rotate_till_value_at_top(t_stack **stack_sorted, t_stack **actual_stack,
 {
 	if (val == stack_sorted[0]->array[0])
 	{
-		rra(stack_sorted[0], 0);
-		rra(actual_stack[0], 1);
-	}
-	else
-	{
-		while (stack_sorted[0]->array[stack_sorted[0]->top] != val)
-		{
-			ra(stack_sorted[0], 0);
-			ra(actual_stack[0], 1);
-		}
-	}
+        rra(stack_sorted[0], 0);
+    	rra(actual_stack[0], 1);
+        
+    }else
+    	{
+        	while(stack_sorted[0]->array[stack_sorted[0]->top] != val)
+        	{
+            	ra(stack_sorted[0], 0);
+            	ra(actual_stack[0], 1);
+        	}
+    	}
 }
 
 void	change_arr_values(t_stack **input_stack,

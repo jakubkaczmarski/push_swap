@@ -6,7 +6,7 @@
 /*   By: jkaczmar <jkaczmar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/27 19:33:18 by jkaczmar          #+#    #+#             */
-/*   Updated: 2022/02/27 21:36:03 by jkaczmar         ###   ########.fr       */
+/*   Updated: 2022/03/08 17:16:51 by jkaczmar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,9 @@ void	ss(t_stack *a, t_stack *b)
 void	pa(t_stack *a, t_stack *b, int i)
 {
 	if (isempty(b))
+	{
 		return ;
+	}
 	push(a, pop(b));
 	if (i == 1)
 		write(1, "pa\n", 3);

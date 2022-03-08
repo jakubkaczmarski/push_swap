@@ -3,17 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jkaczmar <jkaczmar@student.42wolfsburg.de> +#+  +:+       +#+        */
+/*   By: jkaczmar <jkaczmar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 16:32:54 by jkaczmar          #+#    #+#             */
-/*   Updated: 2022/03/02 14:58:35 by jkaczmar         ###   ########.fr       */
+/*   Updated: 2022/03/08 17:34:04 by jkaczmar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 
 # define PUSH_SWAP_H
-
 # include <stdlib.h>
 # include <unistd.h>
 
@@ -32,6 +31,7 @@ void			push(t_stack *stack, int topush);
 int				peek(t_stack *stack);
 void			sa(t_stack *stack, int i);
 void			sa_rra_op(t_stack *stack_a, t_stack *stack_a_cpy);
+void			sa_ra_op(t_stack *stack_a, t_stack *stack_a_cpy);
 void			sb(t_stack *stack, int i);
 void			ss(t_stack *a, t_stack *b);
 void			sa_operation(t_stack *stack, t_stack *stack_cpy);

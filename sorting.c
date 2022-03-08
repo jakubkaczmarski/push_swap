@@ -6,7 +6,7 @@
 /*   By: jkaczmar <jkaczmar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 16:32:53 by jkaczmar          #+#    #+#             */
-/*   Updated: 2022/02/27 21:35:55 by jkaczmar         ###   ########.fr       */
+/*   Updated: 2022/03/08 17:31:41 by jkaczmar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,20 +22,19 @@ void	sort_small_arr_2(t_stack **stack_sorted, t_stack **actual_stack)
 
 void	sort_small_arr_3(t_stack **stack_sorted, t_stack **actual_stack)
 {
-	if (stack_sorted[0]->array[2] < stack_sorted[0]->array[1]
+	if (!issorted(actual_stack[0]))
+	{
+		if (stack_sorted[0]->array[2] < stack_sorted[0]->array[1]
 		&& stack_sorted[0]->array[1] > stack_sorted[0]->array[0]
 		&& stack_sorted[0]->array[2] > stack_sorted[0]->array[0])
 		rra_operation(actual_stack[0], stack_sorted[0]);
 	else if (stack_sorted[0]->array[2] > stack_sorted[0]->array[1]
 		&& stack_sorted[0]->array[1] > stack_sorted[0]->array[0])
-	{
-		sa_operation(actual_stack[0], stack_sorted[0]);
-		rra_operation(actual_stack[0], stack_sorted[0]);
-	}
+		sa_rra_op(actual_stack[0], stack_sorted[0]);
 	else if (stack_sorted[0]->array[2] < stack_sorted[0]->array[1]
 		&& stack_sorted[0]->array[1] > stack_sorted[0]->array[0]
 		&& stack_sorted[0]->array[2] < stack_sorted[0]->array[0])
-		sa_rra_op(actual_stack[0], stack_sorted[0]);
+		sa_ra_op(actual_stack[0], stack_sorted[0]);
 	else if (stack_sorted[0]->array[2] > stack_sorted[0]->array[1]
 		&& stack_sorted[0]->array[1] < stack_sorted[0]->array[0]
 		&& stack_sorted[0]->array[0] < stack_sorted[0]->array[2])
@@ -45,6 +44,7 @@ void	sort_small_arr_3(t_stack **stack_sorted, t_stack **actual_stack)
 		double_rra_op(actual_stack[0], stack_sorted[0]);
 	else
 		sa_operation(actual_stack[0], stack_sorted[0]);
+	}
 }
 
 void	sort_small_arr_5(t_stack **stack_sorted,
@@ -67,9 +67,11 @@ void	sort_small_arr_4(t_stack **stack_sorted,
 						t_stack **stack_b)
 {
 	rotate_till_value_at_top(stack_sorted, actual_stack, 0);
-	pb_op(actual_stack[0], stack_b[0], stack_sorted[0], stack_b_cpy[0]);
+	pb(stack_sorted[0], stack_b[0],0);
+	pb(actual_stack[0], stack_b[0], 1);
 	sort_small_arr_3(stack_sorted, actual_stack);
-	pa_op(actual_stack[0], stack_b[0], stack_sorted[0], stack_b_cpy[0]);
+	pa(actual_stack[0], stack_b_cpy[0],0);
+	pa(actual_stack[0], stack_b[0], 1);
 }
 
 void	radix_sort(t_stack **stack_sorted,
