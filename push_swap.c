@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jkaczmar <jkaczmar@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jkaczmar <jkaczmar@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/27 18:52:04 by jkaczmar          #+#    #+#             */
-/*   Updated: 2022/03/08 17:32:27 by jkaczmar         ###   ########.fr       */
+/*   Updated: 2022/03/08 17:39:21 by jkaczmar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,11 +86,5 @@ int	main(int argc, char **argv)
 		return (freeall(stack_a, cpy_stack_a, stack_b, stack_b_cpy));
 	initialize_arr(&cpy_stack_a, &stack_a);
 	runthesort(&stack_a, &cpy_stack_a, &stack_b, &stack_b_cpy);
-	// i = 0;
-	// while(i < 4)
-	// {
-	// 	printf("%d\n", stack_a->array[i]);
-	// 	i++;
-	// }
 	freeall(stack_a, cpy_stack_a, stack_b, stack_b_cpy);
 }
